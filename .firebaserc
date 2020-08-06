@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "skincare-dbe18": {
+      "hosting": {
+        "app": [
+          "skincare-dbe18"
+        ]
+      }
+    }
+  }
+}
