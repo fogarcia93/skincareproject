@@ -21,7 +21,7 @@ export class HomePage {
   }
   async presentActionSheet() {
     const actionSheet = await this.actionSheetController.create({
-      header: 'Opcions',
+      header: 'Opciones',
       cssClass: 'my-custom-class',
       buttons: [{
         text: 'Cerrar Session',

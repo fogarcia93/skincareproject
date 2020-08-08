@@ -1,11 +1,11 @@
 <ion-header>
   <ion-toolbar color="secondary">
-    <ion-title class="ion-text-center">Register</ion-title>
+    <ion-title class="ion-text-center">Registro</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <img class="icon" src="assets/icon/login.svg">
+  <img class="icon" src="assets/icon/register.svg">
   <ion-item>
     <ion-label position="floating"> Nombre </ion-label>
     <ion-input type="text" [(ngModel)]="name" name="name"></ion-input>
@@ -20,7 +20,7 @@
     <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
   </ion-item>
   <br>
-  <ion-button expand="block" (click)="onSubmitRegister()">Send</ion-button>
+  <ion-button expand="block" (click)="onSubmitRegister()">Enviar Datos</ion-button>
   <br>
   <p class="ion-text-center" routerLink="/login">Ya tengo cuenta</p>
 </ion-content>
