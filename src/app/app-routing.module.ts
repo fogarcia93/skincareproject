@@ -6,7 +6,7 @@ import { NologinGuard } from './guards/nologin.guard';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./components/home/home.module').then( m => m.HomePageModule) ,
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule) ,
     canActivate : [AuthGuard]  
   },
   {
@@ -16,13 +16,25 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./components/user/login/login.module').then( m => m.LoginPageModule),
+    loadChildren: () => import('./pages/user/login/login.module').then( m => m.LoginPageModule),
     canActivate : [NologinGuard]
   },
   {
     path: 'register',
-    loadChildren: () => import('./components/user/register/register.module').then( m => m.RegisterPageModule),
+    loadChildren: () => import('./pages/user/register/register.module').then( m => m.RegisterPageModule),
     canActivate : [NologinGuard]
+  },
+  {
+    path: 'product-detail',
+    loadChildren: () => import('./pages/productDetail/product-detail/product-detail.module').then( m => m.ProductDetailPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/user/profile/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'categories',
+    loadChildren: () => import('./pages/categories/categories.module').then( m => m.CategoriesPageModule)
   },
 ];
 
