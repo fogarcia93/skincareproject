@@ -25,8 +25,8 @@ const routes: Routes = [
     canActivate : [NologinGuard]
   },
   {
-    path: 'product-detail',
-    loadChildren: () => import('./pages/productDetail/product-detail/product-detail.module').then( m => m.ProductDetailPageModule)
+    path: 'product/:id',
+    loadChildren: () => import('./pages/product-detail/product-detail.module').then( m => m.ProductDetailPageModule)
   },
   {
     path: 'profile',

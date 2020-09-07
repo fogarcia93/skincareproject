@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products/products.service';
+import { Product } from 'src/app/models/product';
 
 @Component({
   selector: 'app-home',
@@ -7,20 +8,23 @@ import { ProductsService } from '../../services/products/products.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  products: any;
+
+  products: Product[];
+  
   constructor(
    
-    private productsService: ProductsService
+    private _productsService: ProductsService
     ) { 
       this.products = [];
     }
 
-    ngOnInit(): void {
-      this.productsService.getProducts().subscribe(response=> {
-        response.map(r=>{
-          this.products.push(r.payload.doc.data());
-          console.log(this.products);
-        })
-      });  
+    ngOnInit(): void {  
+      this._productsService.getProducts().subscribe(response => {
+        this.products = response;
+      });
+    }
+
+    viewProduct(id: string){
+      console.log(id);
     }
 }
