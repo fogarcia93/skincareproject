@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products/products.service';
 import { Product } from 'src/app/models/product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ export class HomePage implements OnInit {
   products: Product[];
   
   constructor(
-   
+    private _router: Router,
     private _productsService: ProductsService
     ) { 
       this.products = [];
@@ -24,7 +25,12 @@ export class HomePage implements OnInit {
       });
     }
 
-    viewProduct(id: string){
-      console.log(id);
+    viewProduct(id, name, picture, price, category){
+      sessionStorage.setItem("productId", id);
+      sessionStorage.setItem("productName", name);
+      sessionStorage.setItem("productPicture", picture);
+      sessionStorage.setItem("productPrice", price);
+      sessionStorage.setItem("productCategory", category);
+      this._router.navigate(['/product/', id]);
     }
 }

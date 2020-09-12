@@ -1,6 +1,22 @@
 
 <app-header title="Categorias"></app-header>
 
-<ion-content>
 
-</ion-content>
+
+<ion-content [fullscreen]="true">
+   
+  
+    <ion-grid >
+      <ion-row>
+        <ion-col size="6" *ngFor="let category of  categories" class="product" (click)="viewProduct(category.id)" >
+         <img src="{{category.Picture}}" alt="">
+         <ion-item lines="none" >
+           <ion-label>
+             <h2>{{category.Name}}</h2>
+           </ion-label>
+         </ion-item> 
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  
