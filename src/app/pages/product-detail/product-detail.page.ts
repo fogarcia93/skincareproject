@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { NavController, AlertController } from '@ionic/angular';
+import { PurchaseOrder } from 'src/app/models/PurchaseOrder';
+import { PurchaseOrdersService } from 'src/app/services/purchaseOrders/purchase-orders.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -17,13 +19,17 @@ export class ProductDetailPage implements OnInit {
   productCompany: string;
   cartText: string;
   segment: string = "relatedProducts";
-
   related: Array<any> = [];
   from: Array<any> = [];
+  PurchaseOrder: PurchaseOrder ={
+    id: '',
+    detail: []
+  };
   constructor(
     public afs: AngularFirestore,
     public nav: NavController,
-    public alertControl: AlertController
+    public alertControl: AlertController,
+    public poService: PurchaseOrdersService
 
   ) {
     this.productId = sessionStorage.getItem("productId");
@@ -32,6 +38,7 @@ export class ProductDetailPage implements OnInit {
     this.productPrice = sessionStorage.getItem("productPrice");
     this.productCategory = sessionStorage.getItem("productCategory");
     this.productCompany = sessionStorage.getItem("productCompany");
+   
 
     if (localStorage.getItem("carts")) {
       let carts: Array<any> = JSON.parse(localStorage.getItem("carts"));
@@ -57,8 +64,6 @@ export class ProductDetailPage implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.productCompany);
-
   }
 
   viewProduct(id, name, picture, price, category, company) {
@@ -145,7 +150,13 @@ export class ProductDetailPage implements OnInit {
               company: this.productCompany
             }
             let uid = localStorage.getItem('uid');
-            console.log('servicio para guardar la order' + uid + product);
+            this.PurchaseOrder.id = uid;
+            this.PurchaseOrder.detail.push(product);
+            this.poService.saveOrder(this.PurchaseOrder).then(()=>{
+              this.nav.pop();
+            })
+        
+            
           }
         }
       ]

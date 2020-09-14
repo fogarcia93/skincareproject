@@ -15,7 +15,6 @@ export class PurchaseOrdersPage implements OnInit {
   constructor(private popOver: PopoverController) {
     this.uid = localStorage.getItem('uid');
     this.carts = JSON.parse(localStorage.getItem('carts'));
-
      this.carts.forEach(cart => {
      let conversion = parseInt(cart.price);
      this.totalCost = conversion + this.totalCost;

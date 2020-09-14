@@ -18,7 +18,6 @@ export class CartPage implements OnInit {
     ) {
     if (localStorage.getItem('carts')) {
       this.products = JSON.parse(localStorage.getItem('carts'));
-      console.log(this.products);
     }
 
 
