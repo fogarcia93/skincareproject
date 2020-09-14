@@ -14,7 +14,7 @@
             <ion-icon slot="start" name="cart-outline"></ion-icon>
             {{cartText}}
         </ion-button>
-        <ion-button color="secondary" fill="clear">
+        <ion-button (click)="buyNow()" color="secondary" fill="clear">
             <ion-icon slot="start" name="pricetag-outline"></ion-icon>
             Comprar
         </ion-button>
@@ -37,7 +37,7 @@
         <ion-grid>
             <ion-row>
                 <ion-col size="6" *ngFor="let product of  related" class="product"
-                    (click)="viewProduct(product.id, product.ProductName, product.Picture, product.Price, product.Category)">
+                    (click)="viewProduct(product.id, product.ProductName, product.Picture, product.Price, product.Category, product.Company)">
                     <img src="{{product.Picture}}" alt="">
                     <ion-item lines="none">
                         <ion-label>
@@ -60,7 +60,7 @@
         <ion-grid>
             <ion-row>
                 <ion-col size="6" *ngFor="let product of  from" class="product"
-                    (click)="viewProduct(product.id, product.ProductName, product.Picture, product.Price, product.Category)">
+                    (click)="viewProduct(product.id, product.ProductName, product.Picture, product.Price, product.Category, product.Company)">
                     <img src="{{product.Picture}}" alt="">
                     <ion-item lines="none">
                         <ion-label>

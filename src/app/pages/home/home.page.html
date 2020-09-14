@@ -13,7 +13,7 @@
   <ion-grid >
     <ion-row>
       <ion-col size="6" *ngFor="let product of  products" class="product" 
-      (click)="viewProduct(product.id, product.ProductName, product.Picture, product.Price, product.Category)" >
+      (click)="viewProduct(product.id, product.ProductName, product.Picture, product.Price, product.Category,  product.Company)" >
        <img src="{{product.Picture}}" alt="">
        <ion-item lines="none" >
          <ion-label>

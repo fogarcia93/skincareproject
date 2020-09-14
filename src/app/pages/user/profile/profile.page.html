@@ -12,9 +12,10 @@
         </ion-label>
     </ion-item>
 
-    <ion-item lines="none" >  
+    <ion-item lines="none" (click)="viewCart()" >  
         <ion-icon name="cart-outline" slot="start"></ion-icon>
         <ion-label>Cart</ion-label>
+        <ion-badge slot="end" color="primary" mode="md" *ngIf="cart.length > 0" >{{cart.length}}</ion-badge>
     </ion-item>
 
     

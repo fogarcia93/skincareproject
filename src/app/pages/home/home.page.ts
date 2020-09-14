@@ -25,12 +25,13 @@ export class HomePage implements OnInit {
       });
     }
 
-    viewProduct(id, name, picture, price, category){
+    viewProduct(id, name, picture, price, category, company){
       sessionStorage.setItem("productId", id);
       sessionStorage.setItem("productName", name);
       sessionStorage.setItem("productPicture", picture);
       sessionStorage.setItem("productPrice", price);
       sessionStorage.setItem("productCategory", category);
+      sessionStorage.setItem("productCompany", company);
       this._router.navigate(['/product/', id]);
     }
 }
