@@ -31,7 +31,6 @@ export class PurchaseOrdersService {
   }
 
   saveOrder(order: PurchaseOrder){
-    debugger
     return this.ordersCollection.add(order);
   }
 }

@@ -129,14 +129,12 @@ export class ProductDetailPage implements OnInit {
   }
 
   async buyNow() {
-
     const alertDialog = await this.alertControl.create({
       header: 'Orden de Compra',
       message: '¿Estas seguro de tu pedido?',
       buttons: [
         {
           text: 'Cancelar'
-
         },
         {
           text: 'Si',

@@ -57,7 +57,7 @@ export class HeaderComponent implements OnInit {
         role: 'destructive',
         icon: 'cart-outline',
         handler: () => {
-          this.router.navigate(['/categories']);
+          this.router.navigate(['/cart']);
         }
       }
 
