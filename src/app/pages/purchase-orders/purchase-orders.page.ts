@@ -67,4 +67,8 @@ export class PurchaseOrdersPage implements OnInit {
     alertDialog.present();
   }
 
+  pay(){
+    
+  }
+
 }
