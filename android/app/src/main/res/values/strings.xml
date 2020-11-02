@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">ohmyskin</string>
-    <string name="title_activity_main">ohmyskin</string>
-    <string name="package_name">ohmyskin.com</string>
-    <string name="custom_url_scheme">ohmyskin.com</string>
-</resources>
