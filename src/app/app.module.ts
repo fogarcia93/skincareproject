@@ -12,6 +12,7 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ComponentsModule } from './components/components/components.module';
+import { PayPal } from '@ionic-native/paypal/ngx';
  
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +26,7 @@ import { ComponentsModule } from './components/components/components.module';
   providers: [
     StatusBar,
     SplashScreen,
+    PayPal,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
