@@ -58,8 +58,19 @@ export class HeaderComponent implements OnInit {
         icon: 'cart-outline',
         handler: () => {
           this.router.navigate(['/cart']);
-        }
+        },
+        
+      },
+      {
+        text: 'Admin',
+        role: 'destructive',
+        icon: 'lock-closed-outline',
+        handler: () => {
+          this.router.navigate(['/admin']);
+        },
+        
       }
+
 
     ]
     });

@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { CartPageRoutingModule } from './cart-routing.module';
 import { CartPage } from './cart.page';
 import { ComponentsModule } from 'src/app/components/components/components.module';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ComponentsModule } from 'src/app/components/components/components.modul
     FormsModule,
     IonicModule,
     CartPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    NgxPayPalModule
   ],
   declarations: [CartPage]
 })

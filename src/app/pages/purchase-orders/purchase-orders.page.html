@@ -24,8 +24,7 @@
         <ion-button  (click)="createPurchaseOrder()" expand="block">
             Total: {{totalCost | currency:'HNL '}} 
         </ion-button>
-        <ion-button  (click)="pay()" expand="block">
-            Paypay
-        </ion-button>
+        <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+
     </ion-toolbar>
 </ion-footer>
