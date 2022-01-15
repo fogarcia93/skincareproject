@@ -8,19 +8,25 @@
   <img class="icon" src="assets/icon/register.svg">
   <ion-item>
     <ion-label position="floating"> Nombre </ion-label>
-    <ion-input type="text" [(ngModel)]="name" name="name"></ion-input>
+    <ion-input type="text" [(ngModel)]="user.Name" name="name"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating"> Correo Electronico </ion-label>
-    <ion-input type="text" [(ngModel)]="email" name="email"></ion-input>
+    <ion-input type="text" [(ngModel)]="user.Email" name="email"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating"> Contraseña </ion-label>
-    <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
+    <ion-input type="password" [(ngModel)]="user.Password" name="password"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Selecione una opcion</ion-label>
+    <ion-select (ionChange)="selectedChange($event)" >
+      <ion-select-option *ngFor="let option of options" [value]="option">{{option}}</ion-select-option>
+    </ion-select>
   </ion-item>
   <br>
   <ion-button expand="block" (click)="onSubmitRegister()">Enviar Datos</ion-button>
   <br>
-  <p class="ion-text-center" routerLink="/login">Ya tengo cuenta</p>
+  <ion-button expand="block" routerLink="/login">Ya tengo cuenta</ion-button>
 </ion-content>

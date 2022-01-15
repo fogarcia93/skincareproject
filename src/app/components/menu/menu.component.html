@@ -1,0 +1,31 @@
+<ion-menu side="start" menuId="first" contentId="main">
+  <ion-header>
+    <ion-toolbar color="secondary">
+      <ion-title>Menu Principal</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item (click)="CerrarSesion()" [hidden]="rol" >
+        <ion-label>Cerrar Sesion</ion-label>
+        <ion-icon slot="start" name="log-out-outline"></ion-icon>
+      </ion-item>
+      <ion-item (click)="Perfil()">
+        <ion-label>Perfil</ion-label>
+        <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+      </ion-item>
+      <ion-item (click)="Categorias()" >
+        <ion-label>Categorias</ion-label>
+        <ion-icon slot="start" name="gift-outline"></ion-icon>
+      </ion-item>
+      <ion-item (click)="Carrito()" >
+        <ion-label>Carrito</ion-label>
+        <ion-icon slot="start" name="cart-outline"></ion-icon>
+      </ion-item>
+      <ion-item (click)="Admin()">
+        <ion-label>Admin</ion-label>
+        <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>

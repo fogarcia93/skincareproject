@@ -5,12 +5,14 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Permission } from 'src/app/models/Permission';
+import { User } from 'firebase';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
+  
+  user: User;
   public permissionCollection: AngularFirestoreCollection<Permission>;
   public permissions: Observable<Permission[]>;
 
@@ -46,22 +48,27 @@ export class AuthService {
     })
   }
 
-  register(email: string, password:string, name: string){
+  register(email: string, password:string, name: string, profile: string){
     return new Promise((resolve, reject) =>{
       this.AFauth.createUserWithEmailAndPassword(email,password).then(res =>{
         const uid = res.user.uid;
         this.db.collection('users').doc(uid).set({
-          name: name,
+          Name: name,
           uid: uid,
+          Email: email,
+          Profile: profile
         })
         resolve(res)
       }).catch(err => reject(err))
     })
     
   }
-
   getUserPermitions(){
     return this.permissions;
+  }
+
+  estadoSesion(){
+   return  this.AFauth.authState;
   }
 
 }

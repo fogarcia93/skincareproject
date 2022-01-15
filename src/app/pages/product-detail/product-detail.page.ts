@@ -17,6 +17,7 @@ export class ProductDetailPage implements OnInit {
   productPrice: string;
   productCategory: string;
   productCompany: string;
+  productSkinType: string;
   cartText: string;
   segment: string = "relatedProducts";
   related: Array<any> = [];
@@ -38,7 +39,7 @@ export class ProductDetailPage implements OnInit {
     this.productPrice = sessionStorage.getItem("productPrice");
     this.productCategory = sessionStorage.getItem("productCategory");
     this.productCompany = sessionStorage.getItem("productCompany");
-   
+    this.productSkinType = sessionStorage.getItem("productSkinType");   
 
     if (localStorage.getItem("carts")) {
       let carts: Array<any> = JSON.parse(localStorage.getItem("carts"));
@@ -66,13 +67,14 @@ export class ProductDetailPage implements OnInit {
   ngOnInit() {
   }
 
-  viewProduct(id, name, picture, price, category, company) {
+  viewProduct(id, name, picture, price, category, company, skinType) {
     sessionStorage.setItem("productId", id);
     sessionStorage.setItem("productName", name);
     sessionStorage.setItem("productPicture", picture);
     sessionStorage.setItem("productPrice", price);
     sessionStorage.setItem("productCategory", category);
     sessionStorage.setItem("productCompany", company);
+    sessionStorage.setItem("productSkinType", skinType);
     this.nav.navigateForward('/product/');
   }
 

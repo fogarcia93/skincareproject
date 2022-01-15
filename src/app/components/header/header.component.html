@@ -3,9 +3,12 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/" ></ion-back-button>
     </ion-buttons>
-    <ion-button (click)="presentActionSheet()"  fill="clear" slot="end">
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <!-- <ion-button (click)="presentActionSheet()"  fill="clear" slot="end">
       <ion-icon style="color: #fff;" name="menu"></ion-icon>
-    </ion-button>
+    </ion-button> -->
     <ion-title class="ion-text-center" >
       {{title}} 
     </ion-title>

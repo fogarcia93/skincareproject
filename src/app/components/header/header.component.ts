@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private authService: AuthService, 
     private router: Router,
-    public actionSheetController: ActionSheetController,
+    public actionSheetController: ActionSheetController, private menu: MenuController
   ) { }
 
   ngOnInit() {}

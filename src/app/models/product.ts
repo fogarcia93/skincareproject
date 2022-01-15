@@ -5,5 +5,5 @@ export class Product {
     Picture?: string;
     Category?: string;
     Company?: string;
-
+    SkinType?: string;
 }
