@@ -22,12 +22,10 @@ export class HomePage implements OnInit {
       this.uid = localStorage.getItem('uid');
     }
 
-    ngOnInit(): void {  
-      this._productsService.getProducts().subscribe(response => {
-        this.products = response;
-        console.log(response);
-      });
-      console.log(this.uid);
+    ngOnInit(): void {
+      this._productsService.getColection('products/').subscribe(res => {
+        this.products = res;
+      })
     }
 
     viewProduct(id, name, picture, price, category, company, skinType){

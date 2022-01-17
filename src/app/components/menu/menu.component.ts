@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
+import { User } from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { ProductsService } from 'src/app/services/products/products.service';
 
 @Component({
   selector: 'app-menu',
@@ -10,16 +12,23 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class MenuComponent implements OnInit {
 
-  rol: boolean = false
+  user: any
+  isAdmin: boolean = false
+  uid: string
   constructor(private menu: MenuController, private router: Router,
-    private authService: AuthService, ) { 
-      this.authService.estadoSesion().subscribe(res =>{
-        console.log(res);
-      })
+    private authService: AuthService,
+    private _productsService: ProductsService, ) { 
+      this.uid = localStorage.getItem('uid');
+     
     }
 
-  ngOnInit() {
-    
+  ngOnInit(): void {
+    this._productsService.getProduct(this.uid,'users/').subscribe(_res => {
+     this.user = _res;
+     if (this.user.Profile==='Admin') {
+       this.isAdmin= true;
+     }
+    })
   }
 
   CerrarSesion(){

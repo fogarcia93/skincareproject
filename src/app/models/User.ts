@@ -4,4 +4,5 @@ export class User {
     Email: string;
     Password: string
     Profile: string
+    uid: string
 }
