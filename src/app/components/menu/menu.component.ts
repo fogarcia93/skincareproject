@@ -14,45 +14,58 @@ export class MenuComponent implements OnInit {
 
   user: any
   isAdmin: boolean = false
+  isUser: boolean = false
+  isStore: boolean = false
   uid: string
   constructor(private menu: MenuController, private router: Router,
     private authService: AuthService,
-    private _productsService: ProductsService, ) { 
-      this.uid = localStorage.getItem('uid');
-     
-    }
+    private _productsService: ProductsService,) {
+    this.uid = localStorage.getItem('uid');
 
-  ngOnInit(): void {
-    this._productsService.getProduct(this.uid,'users/').subscribe(_res => {
-     this.user = _res;
-     if (this.user.Profile==='Admin') {
-       this.isAdmin= true;
-     }
-    })
   }
 
-  CerrarSesion(){
+  ngOnInit(): void {
+    this._productsService.getDocument(this.uid, 'users/').subscribe(_res => {
+      this.user = _res;
+      if (this.user.Profile === 'Admin') {
+        return this.isAdmin = false;
+      }
+      if (this.user.Profile === 'Tienda') {
+        return this.isStore = false, this.isAdmin = false;
+      } 
+      if (this.user.Profile === 'Usuario') {
+        return this.isStore = false;
+      }
+    });
+  }
+
+  CerrarSesion() {
     this.authService.logout();
     this.router.navigate(['/login']);
     this.menu.close();
   }
 
-  Perfil(){
+  Perfil() {
     this.router.navigate(['/profile']);
     this.menu.close();
   }
 
-  Categorias(){
+  Categorias() {
     this.router.navigate(['/categories']);
     this.menu.close();
   }
-  Carrito(){
+  Carrito() {
     this.router.navigate(['/cart']);
     this.menu.close();
   }
 
-  Admin(){
+  Admin() {
     this.router.navigate(['/admin']);
+    this.menu.close();
+  }
+
+  Factura() {
+    this.router.navigate(['/invoice']);
     this.menu.close();
   }
 }

@@ -1,9 +1,11 @@
 export class Product {
     id?: string;
     ProductName?: string;
+    Description?: string;
     Price?: number;
-    Picture?: string;
     Category?: string;
     Company?: string;
     SkinType?: string;
+    Picture?: string;
+    Quality?: string;
 }

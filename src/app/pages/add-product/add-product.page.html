@@ -1,29 +1,46 @@
-
 <app-header title="Agregar Producto"></app-header>
 
-
-
 <ion-content class="ion-padding">
-     <ion-item >
-        <ion-label position="floating" > Nombre </ion-label>
-        <ion-input type="text"  name="email" ></ion-input>
-      </ion-item> 
-        
-      <ion-item >
-        <ion-label position="floating" > Descripcion </ion-label>
-        <ion-input type="text"  name="email" ></ion-input>
-      </ion-item> 
-      <ion-item >
-        <ion-label position="floating" > Categoria </ion-label>
-        <ion-input type="text"  name="email" ></ion-input>
-      </ion-item> 
-      <ion-item >
-        <ion-label position="floating" > Precio </ion-label>
-        <ion-input type="text"  name="email" ></ion-input>
-      </ion-item> 
+  <ion-item>
+    <ion-label position="floating"> Nombre Producto </ion-label>
+    <ion-input type="text" [(ngModel)]="product.ProductName"></ion-input>
+  </ion-item>
 
-      <br>
-<ion-button expand="block"  >Guardar</ion-button>
-<br>
+  <ion-item>
+    <ion-label position="floating"> Descripcion </ion-label>
+    <ion-input type="text" [(ngModel)]="product.Description"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"> Precio </ion-label>
+    <ion-input type="number" [(ngModel)]="product.Price"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"> Categoria </ion-label>
+    <ion-input type="text" [(ngModel)]="product.Category"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"> Compañia </ion-label>
+    <ion-input type="text" [(ngModel)]="product.Company"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"> Tipo Piel </ion-label>
+    <ion-input type="text" [(ngModel)]="product.SkinType"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"> Cantidad </ion-label>
+    <ion-input type="text" [(ngModel)]="product.Quality"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"> Imagen </ion-label>
+    <ion-input type="number" [(ngModel)]="product.Picture"></ion-input>
+  </ion-item>
+  <br>
+  <ion-button (click)="guardarProducto()"  expand="block">Guardar</ion-button>
+  <br>
 </ion-content>
-  

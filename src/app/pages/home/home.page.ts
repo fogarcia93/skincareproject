@@ -42,9 +42,9 @@ export class HomePage implements OnInit {
     buscar(event){
       const filter = this.products.filter(res => res.SkinType === event.detail.value);
       if(filter.length===0 ){
-        this._productsService.getProducts().subscribe(response => {
-          this.products = response;
-        });
+        this._productsService.getColection('products/').subscribe(res => {
+          this.products = res;
+        })
       }else{
         this.products = filter;
       }     

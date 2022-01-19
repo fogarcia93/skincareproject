@@ -14,43 +14,44 @@ export class ProductsService {
   private products: Observable<Product[]>;
 
   constructor(
-   public db: AngularFirestore) { 
-       this.productCollection = db.collection<Product>('products');
-       this.products = this.productCollection.snapshotChanges().pipe(map(
-         actions => {
-           return actions.map(x=>{
-             const data = x.payload.doc.data();
-             const id = x.payload.doc.id;
-             return {id, ...data }
-           });
-         }
-       ));
-    }
+    public db: AngularFirestore) {
+    this.productCollection = db.collection<Product>('products');
+    this.products = this.productCollection.snapshotChanges().pipe(map(
+      actions => {
+        return actions.map(x => {
+          const data = x.payload.doc.data();
+          const id = x.payload.doc.id;
+          return { id, ...data }
+        });
+      }
+    ));
+  }
 
-    getProducts(){
-      return this.products;
-    }
+  createDoc(data: any, path: string, id: string) {
+    const document = this.db.collection(path);
+    return document.doc(id).set(data);
+  }
 
-    getProduct(id: string, path: string){
-      const query = this.db.collection(path)
-      return query.doc(id).valueChanges();
-    }
+  getDocument(id: string, path: string) {
+    const document = this.db.collection(path)
+    return document.doc(id).valueChanges();
+  }
 
-    updateProduct(product: Product, id: string){
-      return this.productCollection.doc(id).update(product);
-    }
+  deleteDoc(id: string, path: string) {
+    const document = this.db.collection(path)
+    return document.doc(id).delete();
+  }
 
+  updateDoc(data: any, path: string, id: string) {
+    const document = this.db.collection(path);
+    return document.doc(id).update (data);
+  }
 
-    saveProduct(product: Product){
-      return this.productCollection.add(product);
-    }
-
-    removeProduct(id: string){
-      return this.productCollection.doc(id).delete();
-    }
-
-    getColection(path: string){
-      const query = this.db.collection(path);
-      return query.valueChanges();
-    }
+  getColection(path: string) {
+    const query = this.db.collection(path);
+    return query.valueChanges();
+  }
+  getId(){
+    return this.db.createId();
+  }
 }
