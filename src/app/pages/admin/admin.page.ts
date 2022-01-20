@@ -27,4 +27,7 @@ export class AdminPage implements OnInit {
     this.router.navigate(['/add-product']);
   }
 
+  delete(product: Product){
+    this._productsService.deleteDoc(product.id, 'products/');
+  }
 }

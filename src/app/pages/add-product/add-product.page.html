@@ -37,9 +37,21 @@
   </ion-item>
 
   <ion-item>
-    <ion-label position="floating"> Imagen </ion-label>
-    <ion-input type="number" [(ngModel)]="product.Picture"></ion-input>
+    <ion-label>
+      Imagen:
+    </ion-label>
+    <ion-buttons slot="end">
+      <ion-button>
+        <label for="file-upload" >
+          <ion-icon slot="icon-only" name="images" ></ion-icon>
+        </label>
+        <input (change)="Cargar($event)" id="file-upload" style="display: none;" type="file" >
+      </ion-button>
+    </ion-buttons>
   </ion-item>
+ 
+  <img [src]="imagen">
+  
   <br>
   <ion-button (click)="guardarProducto()"  expand="block">Guardar</ion-button>
   <br>

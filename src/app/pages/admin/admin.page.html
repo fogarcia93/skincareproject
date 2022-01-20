@@ -15,8 +15,8 @@
       <ion-button>
         <ion-icon slot="icon-only" name="create-outline"></ion-icon>
       </ion-button>
-      <ion-button>
-        <ion-icon slot="icon-only" color="danger" name="trash-outline"></ion-icon>
+      <ion-button (click)="delete(product)">
+        <ion-icon slot="icon-only" color="danger" name="trash-outline"  ></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-item>
