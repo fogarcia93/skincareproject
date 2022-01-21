@@ -12,7 +12,7 @@ export class PurchaseOrdersService {
   private orders: Observable<PurchaseOrder[]>;
 
 
-  constructor(db: AngularFirestore) { 
+  constructor(public db: AngularFirestore) { 
     this.ordersCollection = db.collection<PurchaseOrder>('orders');
     this.orders = this.ordersCollection.snapshotChanges().pipe(map(
       actions => {
@@ -32,5 +32,10 @@ export class PurchaseOrdersService {
 
   saveOrder(order: PurchaseOrder){
     return this.ordersCollection.add(order);
+  }
+
+  getColection(path: string) {
+    const query = this.db.collection(path);
+    return query.valueChanges();
   }
 }

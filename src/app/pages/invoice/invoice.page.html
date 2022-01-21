@@ -1,14 +1,29 @@
 <app-header title="Generacion Factura"></app-header>
   <ion-content>
-    <div class="item item-divider">
-      <h2>Factura </h2>
-      <h2>Nº </h2>
-      <h2>
-        <span ng-show="invoice.invoice_detail.invoice_name != false">Nombre </span>
-        <span ng-show="invoice.invoice_detail.invoice_name == false">Borrador</span>
-      </h2>
+
+    <div  class="item item-divider" id="div1">
+      <h2>Factura</h2>
+      <h2>Nº 0001</h2>
+      <h2>Cliente: FredyGarcia</h2>
+      <h2>Tienda: Belleza HN</h2>
+      <table border="1" width="100%" >
+     <thead>
+      <th>Producto</th>
+      <th>Cantidad</th>
+      <th>Precio</th>
+      <th>Subtotal</th>
+     </thead>
+     <tbody>
+       <tr *ngFor="let item of purchaseOrders3.detail" >
+         <td>{{item.name}}</td>
+         <td>{{item.qty}}</td>
+         <td>{{item.price}}</td>
+         <td>{{item.price * item.qty}}</td>
+       </tr>
+     </tbody>
+      </table>
+      <h2 id="container" >Total</h2>
     </div>
-    <div class="item item-text-wrap">
-      <p ng-repeat="li in invoice.lineas">Id producto:  | Nombre: </p>
-    </div>
+    <ion-button (click)="descargar()"  expand="block">Exportar PDF</ion-button>
+    
   </ion-content>

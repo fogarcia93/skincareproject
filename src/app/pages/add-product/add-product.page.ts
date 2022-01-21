@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoadingController, ToastController } from '@ionic/angular';
 import { Product } from 'src/app/models/product';
 import { ProductsService } from 'src/app/services/products/products.service';
 
@@ -15,7 +16,7 @@ export class AddProductPage implements OnInit {
   newFile: string = ''
   constructor(
     private _router: Router,
-    private _productsService: ProductsService,
+    private _productsService: ProductsService, private toastController: ToastController, public loadingController: LoadingController
   ) {
     this.product = new Product();
    }
@@ -23,9 +24,26 @@ export class AddProductPage implements OnInit {
   ngOnInit() {
   }
 
+  async presentToast(mensaje: string) {
+    const toast = await this.toastController.create({
+      message: mensaje,
+      duration: 3000,
+      position: 'middle',
+    });
+    toast.present();
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      message: 'Por Favor Espere',
+      duration: 5000
+    });
+    await loading.present();
+  }
   async guardarProducto(){
     const path = 'productos';
-    const name = 'prueba';
+    const name = this.product.ProductName;
     const res = await this._productsService.subirFoto(this.newFile, path, name);
     this.product.Picture = res;
  

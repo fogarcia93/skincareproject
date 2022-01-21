@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { ProductsService } from 'src/app/services/products/products.service';
-
+declare var html2pdf; 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.page.html',
@@ -29,5 +29,14 @@ export class AdminPage implements OnInit {
 
   delete(product: Product){
     this._productsService.deleteDoc(product.id, 'products/');
+  }
+
+  descargar(){
+    const div = document.getElementById("div1");
+    var options = {
+      margin:1,
+      filename: Date.now().toString()+".pdf"
+    }
+    html2pdf().from(div).set(options).save();
   }
 }

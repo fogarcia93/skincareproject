@@ -36,6 +36,7 @@ export class AuthService {
    return new Promise((resolve, rejected) =>{
     this.AFauth.signInWithEmailAndPassword(email,password).then(user => {
       resolve(user)
+      console.log(user.user.uid);
      localStorage.setItem('uid',user.user.uid);
     }).catch(err => rejected(err))
    })
