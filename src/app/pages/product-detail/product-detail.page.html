@@ -1,15 +1,18 @@
 <app-header [title]="productName"></app-header>
 
 
-<ion-content>
+<ion-content> 
     <div class="ion-padding" >
+        <h3 id="cont">
+            Tienda: Belleza HN
+        </h3>
         <img src="{{productPicture}}" id="pImg" alt="">
         <h4 id="pName">
             {{productName}}
         </h4>
-        <ion-badge color="primary" slot="start" class="md">{{productCategory}}</ion-badge> 
+        <ion-badge color="success" slot="start" class="md">Tipo Piel: {{productSkinType}}</ion-badge> 
+        <ion-badge color="primary" slot="start" class="md">  Categoria: {{productCategory}}</ion-badge> 
         <p>Precio {{productPrice | currency:'HNL ' }}</p>
-        <ion-badge color="primary" slot="start" class="md">{{productSkinType}}</ion-badge>
 
 
         <ion-button (click)="addToCart()" color="primary" fill="clear">
@@ -46,7 +49,6 @@
                             <h2>{{product.ProductName}}</h2>
                             <p>{{product.Price | currency:'HNL ' }}</p>
                             <ion-note>{{product.Category}}</ion-note>
-                            <ion-note>{{product.SkinType}}</ion-note>
                         </ion-label>
                     </ion-item>
                 </ion-col>

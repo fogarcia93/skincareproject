@@ -1,0 +1,18 @@
+<app-header title="Ordenes"></app-header>
+
+<ion-content class="ion-padding">
+
+   
+ 
+ 
+
+  <ion-item *ngFor="let product of purchaseOrders">
+    <ion-label class="normal">
+      OC123</ion-label>
+    <ion-buttons slot="end">
+      <ion-button (click)="ver()">
+        <ion-icon slot="icon-only" name="eye-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+</ion-content>

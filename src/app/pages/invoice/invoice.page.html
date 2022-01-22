@@ -1,29 +1,84 @@
 <app-header title="Generacion Factura"></app-header>
   <ion-content>
 
-    <div  class="item item-divider" id="div1">
-      <h2>Factura</h2>
-      <h2>Nº 0001</h2>
-      <h2>Cliente: FredyGarcia</h2>
-      <h2>Tienda: Belleza HN</h2>
-      <table border="1" width="100%" >
-     <thead>
-      <th>Producto</th>
-      <th>Cantidad</th>
-      <th>Precio</th>
-      <th>Subtotal</th>
-     </thead>
-     <tbody>
-       <tr *ngFor="let item of purchaseOrders3.detail" >
-         <td>{{item.name}}</td>
-         <td>{{item.qty}}</td>
-         <td>{{item.price}}</td>
-         <td>{{item.price * item.qty}}</td>
-       </tr>
-     </tbody>
-      </table>
-      <h2 id="container" >Total</h2>
-    </div>
+ <div class="invoice-box" id="div1">
+			<table cellpadding="0" cellspacing="0">
+				<tr class="top">
+					<td colspan="2">
+						<table>
+							<tr>
+								<td class="title">
+								</td>
+
+								<td>
+									Factura #: 123<br />
+									Fecha: Enero 23, 2022<br />
+
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+				<tr class="information">
+					<td colspan="2">
+						<table>
+							<tr>
+								<td>
+								San Pedro Sula, Cortes<br />
+									Colonia Prado Alto<br />
+									27 Calle
+								</td>
+
+								<td>
+									Cliente<br />
+									Fredy Garcia<br />
+									fredy@gmail.com
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+				<tr class="heading">
+					<td>Metodo de Pago</td>
+
+					<td>Subtotal #</td>
+				</tr>
+
+				<tr class="details">
+					<td>Tarjeta</td>
+
+					<td>525</td>
+				</tr>
+
+				<tr class="heading">
+					<td>Item</td>
+                    <td>Cantidad</td>
+					<td>Precio</td>
+				</tr>
+
+				<tr class="item">
+					<td>Crema Loreal</td>
+          <td>10</td>
+					<td> L.50</td>
+				</tr>
+
+				<tr class="item">
+					<td>Protector Sola</td>
+          <td>5</td>
+					<td>L.25</td>
+				</tr>
+
+
+
+				<tr class="total">
+					<td></td>
+
+					<td>Total: L.525.00</td>
+				</tr>
+			</table>
+		</div>
     <ion-button (click)="descargar()"  expand="block">Exportar PDF</ion-button>
     
   </ion-content>

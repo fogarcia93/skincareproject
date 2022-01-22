@@ -7,5 +7,5 @@ export class Product {
     Company?: string;
     SkinType?: string;
     Picture?: string;
-    Quality?: string;
+    Quality?: number;
 }
