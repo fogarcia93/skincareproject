@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { Product } from 'src/app/models/product';
 import { ProductsService } from 'src/app/services/products/products.service';
 declare var html2pdf; 
@@ -11,9 +12,11 @@ declare var html2pdf;
 export class AdminPage implements OnInit {
 
   products: Product[]=[]
+  
   constructor(
     private router: Router,
     private _productsService: ProductsService,
+    public alertControl: AlertController
   ) { }
 
   ngOnInit() {
@@ -27,8 +30,26 @@ export class AdminPage implements OnInit {
     this.router.navigate(['/add-product']);
   }
 
-  delete(product: Product){
-    this._productsService.deleteDoc(product.id, 'products/');
+
+  async delete(product: Product){
+    const alertDialog = await this.alertControl.create({
+      header: 'Eliminar Producto',
+      message: '¿Estas seguro de eliminar e item?',
+      buttons: [
+        {
+          text: 'Cancelar'
+        },
+        {
+          text: 'Si',
+          handler: () => {
+
+            this._productsService.deleteDoc(product.id, 'products/');
+          }
+        }
+      ]
+    });
+
+    alertDialog.present();
   }
 
   descargar(){
@@ -38,5 +59,10 @@ export class AdminPage implements OnInit {
       filename: Date.now().toString()+".pdf"
     }
     html2pdf().from(div).set(options).save();
+  }
+
+
+  edit(product: Product){
+    this.router.navigate(['/edit/editproduct', product.id]);
   }
 }

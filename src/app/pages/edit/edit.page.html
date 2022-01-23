@@ -1,0 +1,58 @@
+<app-header title="Editar Producto"></app-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="floating"> Nombre Producto </ion-label>
+    <ion-input type="text" [(ngModel)]="product.ProductName"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"> Descripcion </ion-label>
+    <ion-input type="text" [(ngModel)]="product.Description"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"> Precio </ion-label>
+    <ion-input type="number" [(ngModel)]="product.Price"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"> Categoria </ion-label>
+    <ion-input type="text" [(ngModel)]="product.Category"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"> Compañia </ion-label>
+    <ion-input type="text" [(ngModel)]="product.Company"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"> Tipo Piel </ion-label>
+    <ion-input type="text" [(ngModel)]="product.SkinType"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"> Cantidad </ion-label>
+    <ion-input type="text" [(ngModel)]="product.Quality"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      Imagen:
+    </ion-label>
+    <ion-buttons slot="end">
+      <ion-button>
+        <label for="file-upload" >
+          <ion-icon slot="icon-only" name="images" ></ion-icon>
+        </label>
+        <input (change)="Cargar($event)" id="file-upload" style="display: none;" type="file" >
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+ 
+  <img [src]="imagen">
+  
+  <br>
+  <ion-button (click)="update()"  expand="block">Actualizar</ion-button>
+  <br>
+</ion-content>

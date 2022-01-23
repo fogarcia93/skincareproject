@@ -59,6 +59,7 @@ export class AddProductPage implements OnInit {
     Picture: this.product.Picture
     };
     this._productsService.createDoc(data,'products/',data.id);
+    this._router.navigate(['/admin']);
   }
 
   async Cargar(event:any){

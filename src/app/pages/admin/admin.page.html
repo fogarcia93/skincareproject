@@ -12,7 +12,7 @@
     <ion-label class="normal">
       {{product.ProductName}}</ion-label>
     <ion-buttons slot="end">
-      <ion-button>
+      <ion-button (click)="edit(product)" >
         <ion-icon slot="icon-only" name="create-outline"></ion-icon>
       </ion-button>
       <ion-button (click)="delete(product)">
@@ -20,4 +20,5 @@
       </ion-button>
     </ion-buttons>
   </ion-item>
+  
 </ion-content>

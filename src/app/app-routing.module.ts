@@ -60,6 +60,10 @@ const routes: Routes = [
     path: 'orders-main',
     loadChildren: () => import('./pages/orders-main/orders-main.module').then( m => m.OrdersMainPageModule)
   },
+  {
+    path: 'edit',
+    loadChildren: () => import('./pages/edit/edit.module').then( m => m.EditPageModule)
+  },
 ];
 
 @NgModule({
